@@ -67,44 +67,23 @@ resource "aws_cloudfront_distribution" "cdn_distribution" {
     }
   }
 
-# TODO: Adapt ordered_cache_behavior below
-
-#   Cache behavior with precedence 1
-  ordered_cache_behavior {
-    path_pattern     = "/content/*"
-    allowed_methods  = ["GET", "HEAD", "OPTIONS"]
-    cached_methods   = ["GET", "HEAD"]
-    target_origin_id = local.s3_origin_id
-
-    forwarded_values {
-      query_string = false
-
-      cookies {
-        forward = "none"
-      }
-    }
-
-    min_ttl                = 0
-    default_ttl            = 3600
-    max_ttl                = 86400
-    compress               = true
-    viewer_protocol_policy = "redirect-to-https"
-  }
-
-  price_class = "PriceClass_200"
+  price_class = var.price_class
 
   restrictions {
     geo_restriction {
-      restriction_type = "whitelist"
-      locations        = ["US", "CA", "GB", "DE"]
+      restriction_type = var.restriction_type
+      locations        = var.geo_locations
     }
   }
 
-  tags = {
-    Environment = "production"
-  }
+  tags = merge(
+    {
+      Environment = var.environment
+    },
+    var.extra_tags
+  )
 
   viewer_certificate {
-    cloudfront_default_certificate = true
+    cloudfront_default_certificate = var.cloudfront_default_certificate
   }
 }

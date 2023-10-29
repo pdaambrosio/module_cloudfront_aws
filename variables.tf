@@ -179,4 +179,39 @@ variable "path_max_ttl" {
     default     = 31536000
 }
 
+variable "price_class" {
+    description = "The price class that corresponds with the maximum price that you want to pay for CloudFront service."
+    type        = string
+    default     = "PriceClass_100"
+  
+}
 
+variable "restriction_type" {
+    description = "The restriction type to impose on user requests. Valid values: none, whitelist, blacklist."
+    type        = string
+    default     = "whitelist"
+}
+
+variable "geo_locations" {
+    description = "The country codes for the countries that you want CloudFront either to distribute your content (whitelist) or not distribute your content (blacklist)."
+    type        = list(string)
+    default     = ["US", "CA", "GB", "DE"] 
+}
+
+variable "environment" {
+    description = "The environment name."
+    type        = string
+    default     = "dev"
+}
+
+variable "extra_tags" {
+  description = "Extra tags to add to the bucket"
+  type        = map(string)
+  default     = {}
+}
+
+variable "cloudfront_default_certificate" {
+  description = "Whether you want CloudFront to automatically create a CloudFront default certificate."
+  type        = bool
+  default     = true
+}
