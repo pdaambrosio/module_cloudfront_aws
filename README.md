@@ -7,7 +7,9 @@
 ## Requirements
 
 No requirements.
+
 ## Usage
+
 Basic usage of this module is as follows:
 ```hcl
 module "example" {
@@ -79,11 +81,13 @@ module "example" {
 	 s3_origin_id_name  = "myS3Origin"
 }
 ```
+
 ## Resources
 
 | Name | Type |
 |------|------|
 | [aws_cloudfront_distribution.cdn_distribution](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudfront_distribution) | resource |
+
 ## Inputs
 
 | Name | Description | Type | Default | Required |
@@ -124,6 +128,7 @@ module "example" {
 | <a name="input_restriction_type"></a> [restriction\_type](#input\_restriction\_type) | The restriction type to impose on user requests. Valid values: none, whitelist, blacklist. | `string` | `"whitelist"` | no |
 | <a name="input_s3_domain_name"></a> [s3\_domain\_name](#input\_s3\_domain\_name) | The domain name of the S3 bucket to associate with the distribution. The S3 bucket must be in the same region as the CloudFront distribution. | `string` | `"mybucket.s3.amazonaws.com"` | no |
 | <a name="input_s3_origin_id_name"></a> [s3\_origin\_id\_name](#input\_s3\_origin\_id\_name) | A unique identifier that specifies the AWS S3 origin. | `string` | `"myS3Origin"` | no |
+
 ## Outputs
 
 | Name | Description |
