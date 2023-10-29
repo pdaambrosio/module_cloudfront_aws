@@ -47,23 +47,23 @@ resource "aws_cloudfront_distribution" "cdn_distribution" {
   dynamic "ordered_cache_behavior" {
     for_each = var.cache_path_pattern == true ? [1] : []
     content {
-        path_pattern     = var.path_pattern
-        allowed_methods  = var.path_allowed_methods
-        cached_methods   = var.path_cached_methods
-        target_origin_id = var.path_origin_id_name
-    
-        forwarded_values {
-            query_string = var.path_cache_query_string
-    
-            cookies {
-            forward = var.path_cookies_forward == true ? "all" : "none"
-            }
+      path_pattern     = var.path_pattern
+      allowed_methods  = var.path_allowed_methods
+      cached_methods   = var.path_cached_methods
+      target_origin_id = var.path_origin_id_name
+
+      forwarded_values {
+        query_string = var.path_cache_query_string
+
+        cookies {
+          forward = var.path_cookies_forward == true ? "all" : "none"
         }
-    
-        viewer_protocol_policy = var.path_viewer_protocol_policy
-        min_ttl                = var.path_min_ttl
-        default_ttl            = var.path_default_ttl
-        max_ttl                = var.path_max_ttl
+      }
+
+      viewer_protocol_policy = var.path_viewer_protocol_policy
+      min_ttl                = var.path_min_ttl
+      default_ttl            = var.path_default_ttl
+      max_ttl                = var.path_max_ttl
     }
   }
 

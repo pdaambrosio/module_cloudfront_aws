@@ -84,124 +84,124 @@ variable "default_cache_query_string" {
 }
 
 variable "defaut_cookies_forward" {
-    description = "Specifies which cookies to forward to the origin for this cache behavior: all, none or whitelist."
-    type        = bool
-    default     = false
+  description = "Specifies which cookies to forward to the origin for this cache behavior: all, none or whitelist."
+  type        = bool
+  default     = false
 }
 
 variable "default_viewer_protocol_policy" {
-    description = "The protocol that viewers can use to access the files in the origin specified by TargetOriginId when a request matches the path pattern in PathPattern."
-    type        = string
-    default     = "redirect-to-https"
+  description = "The protocol that viewers can use to access the files in the origin specified by TargetOriginId when a request matches the path pattern in PathPattern."
+  type        = string
+  default     = "redirect-to-https"
 }
 
 variable "default_min_ttl" {
-    description = "The minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated."
-    type        = number
-    default     = 0
+  description = "The minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated."
+  type        = number
+  default     = 0
 }
 
 variable "default_default_ttl" {
-    description = "The default amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated."
-    type        = number
-    default     = 86400
+  description = "The default amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated."
+  type        = number
+  default     = 86400
 }
 
 variable "default_max_ttl" {
-    description = "The maximum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated."
-    type        = number
-    default     = 31536000
+  description = "The maximum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated."
+  type        = number
+  default     = 31536000
 }
 
 variable "cache_path_pattern" {
-    description = "Whether you want CloudFront to forward query strings to the origin that is associated with this cache behavior."
-    type        = bool
-    default     = false
+  description = "Whether you want CloudFront to forward query strings to the origin that is associated with this cache behavior."
+  type        = bool
+  default     = false
 }
 
 variable "path_pattern" {
-    description = "The pattern (for example, images/*.jpg) that specifies which requests to apply the behavior to."
-    type        = string
-    default     = "/content/*"
+  description = "The pattern (for example, images/*.jpg) that specifies which requests to apply the behavior to."
+  type        = string
+  default     = "/content/*"
 }
 
 variable "path_allowed_methods" {
-    description = "HTTP methods that CloudFront processes and forwards to your Amazon S3 bucket or your custom origin."
-    type        = list(string)
-    default     = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
+  description = "HTTP methods that CloudFront processes and forwards to your Amazon S3 bucket or your custom origin."
+  type        = list(string)
+  default     = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
 }
 
 variable "path_cached_methods" {
-    description = "HTTP methods for which CloudFront caches responses."
-    type        = list(string)
-    default     = ["GET", "HEAD"]
+  description = "HTTP methods for which CloudFront caches responses."
+  type        = list(string)
+  default     = ["GET", "HEAD"]
 }
 
 variable "path_origin_id_name" {
-    description = "A unique identifier that specifies the AWS origin."
-    type        = string
-    default     = "myOrigin"
+  description = "A unique identifier that specifies the AWS origin."
+  type        = string
+  default     = "myOrigin"
 }
 
 variable "path_cache_query_string" {
-    description = "Indicates whether CloudFront automatically includes query strings in requests that it sends to the origin."
-    type        = bool
-    default     = false
+  description = "Indicates whether CloudFront automatically includes query strings in requests that it sends to the origin."
+  type        = bool
+  default     = false
 }
 
 variable "path_cookies_forward" {
-    description = "Specifies which cookies to forward to the origin for this cache behavior: all, none or whitelist."
-    type        = bool
-    default     = false
+  description = "Specifies which cookies to forward to the origin for this cache behavior: all, none or whitelist."
+  type        = bool
+  default     = false
 }
 
 variable "path_viewer_protocol_policy" {
-    description = "The protocol that viewers can use to access the files in the origin specified by TargetOriginId when a request matches the path pattern in PathPattern."
-    type        = string
-    default     = "redirect-to-https"
+  description = "The protocol that viewers can use to access the files in the origin specified by TargetOriginId when a request matches the path pattern in PathPattern."
+  type        = string
+  default     = "redirect-to-https"
 }
 
 variable "path_min_ttl" {
-    description = "The minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated."
-    type        = number
-    default     = 0
+  description = "The minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated."
+  type        = number
+  default     = 0
 }
 
 variable "path_default_ttl" {
-    description = "The default amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated."
-    type        = number
-    default     = 86400
+  description = "The default amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated."
+  type        = number
+  default     = 86400
 }
 
 variable "path_max_ttl" {
-    description = "The maximum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated."
-    type        = number
-    default     = 31536000
+  description = "The maximum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated."
+  type        = number
+  default     = 31536000
 }
 
 variable "price_class" {
-    description = "The price class that corresponds with the maximum price that you want to pay for CloudFront service."
-    type        = string
-    default     = "PriceClass_100"
-  
+  description = "The price class that corresponds with the maximum price that you want to pay for CloudFront service."
+  type        = string
+  default     = "PriceClass_100"
+
 }
 
 variable "restriction_type" {
-    description = "The restriction type to impose on user requests. Valid values: none, whitelist, blacklist."
-    type        = string
-    default     = "whitelist"
+  description = "The restriction type to impose on user requests. Valid values: none, whitelist, blacklist."
+  type        = string
+  default     = "whitelist"
 }
 
 variable "geo_locations" {
-    description = "The country codes for the countries that you want CloudFront either to distribute your content (whitelist) or not distribute your content (blacklist)."
-    type        = list(string)
-    default     = ["US", "CA", "GB", "DE"] 
+  description = "The country codes for the countries that you want CloudFront either to distribute your content (whitelist) or not distribute your content (blacklist)."
+  type        = list(string)
+  default     = ["US", "CA", "GB", "DE"]
 }
 
 variable "environment" {
-    description = "The environment name."
-    type        = string
-    default     = "dev"
+  description = "The environment name."
+  type        = string
+  default     = "dev"
 }
 
 variable "extra_tags" {
